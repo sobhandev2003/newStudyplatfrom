@@ -1,0 +1,122 @@
+
+.home-video-main-div{
+    /* border: 2px solid red; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    overflow: auto;
+    flex-direction: row;
+}
+.datamap-div{
+    display: flex;
+    flex-direction: column;
+    /* margin-right: 50px; */
+
+}
+.home-item-container{
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    margin: 10px;
+    width: 406px;
+    height: 330px;
+}
+.video-link{
+    
+    display: inline-block;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+
+}
+.video-des{
+    display: flex;
+   
+    height: 39px;
+    margin-bottom: 0px;
+}
+.video-des img{
+    margin-right: 6px;
+    width: 40px;
+    height: 100%;
+}
+.item-video{
+    outline: none;
+    width: 100%;
+    height: 50%;
+    border-radius: 25px;
+}
+
+.video-titale{
+   font-size: medium;
+   color: black;
+}
+.chanel-name{
+    background: none;
+    border: none;
+    width: fit-content;
+    height: fit-content;
+    color: rgb(69, 67, 67);
+    font-size: 15px;
+    margin-left: 40px;
+
+}
+.chenel-viws-ditals{
+    display: flex;
+    width: 29%;
+    flex-direction: column;
+    position: absolute;
+    margin-top: 0px;
+}
+.video-view{
+    color: rgb(63, 62, 62);
+    font-size :15px; 
+    margin-left: 40px;
+    width: fit-content;
+    height: fit-content;
+}
+@media only screen and (max-width: 767px) {
+    .home-item-container{
+        height:fit-content;
+    }
+    .datamap-div{
+        width: 85dvw;
+        padding: 0;
+
+        /* border: 1px solid rgb(6, 193, 245); */
+    }
+    .home-item-container{
+        width: fit-content;
+    }
+    .video-titale{
+        font-size: 11px;
+    }
+    .chenel-viws-ditals{
+        position: relative;
+        flex-direction: row;
+        width: fit-content;
+        /* justify-content: start; */
+        /* background-color: aqua; */
+    }
+    .chanel-name{
+        
+        padding-right: 5px;
+        font-size: 10px;
+       
+    }
+    .video-view{
+        padding-left: 5px;
+        /* border-left:1px solid rgb(63, 62, 62) ;      */
+        
+        font-size: 10px;
+        margin-left: 3px;
+    }
+    .video-link {
+        margin-left: 0px;
+        /* border: 1px solid red; */
+        width: 80dvw;
+    }
+    
+}

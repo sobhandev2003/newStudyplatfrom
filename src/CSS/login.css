@@ -1,0 +1,134 @@
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-size: cover;
+
+} */
+
+.container {
+    position: absolute;
+    top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 200px; */
+
+}
+
+.login-box {
+    /* display: flex; */
+    /* justify-content: center; */
+    background-color:aliceblue;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    width: 500px;
+    height: 550px;
+    text-align: center;
+}
+.login-form{
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    flex-direction: column;
+}
+.login-box h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.social-login {
+    margin-bottom: 20px;
+}
+
+.social-icon{
+    display: block;
+    margin-bottom: 8px;
+    font-size: 20px;
+    padding: 10px;
+    text-decoration: none;
+    border: 1px solid blueviolet;
+    border-radius: 5px;
+    color: #333;
+    
+}
+
+.social-icon:hover {
+    background-color: #92a3e0;
+    text-decoration: underline;
+}
+
+/* .form-group {
+    margin: auto;
+    margin-bottom: 15px;
+    
+    width: 350px;
+
+} */
+
+.login-details{
+    margin-top: 8px;
+    margin-bottom: 8px;
+    width: 350px;
+    padding: 5px;
+    height: 45px;
+    font-size: 20px;
+    border: 1px solid blueviolet;
+    border-radius: 5px;
+}
+
+#btn {
+    background-color: #007BFF;
+    color:white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#btn:hover {
+    background-color: #0056b3;
+}
+
+#pp {
+    margin-top: 10px;
+}
+
+#aa {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+#aa:hover {
+    text-decoration: underline;
+}
+.signupSegetion{
+    font-size: 20px;
+}
+@media screen and (max-width: 600px) {
+    .login-body{
+        width: 90dvw;
+    }
+    .login-box {
+        width: 280px;
+        height: 420px;
+    }
+    .login-details{
+        width: 260px;
+    }
+    .social-icon{
+        width: 260px;
+        height: 40px;
+        font-size: smaller;
+    }
+    .signupSegetion{
+        font-size: smaller;
+    }
+}
