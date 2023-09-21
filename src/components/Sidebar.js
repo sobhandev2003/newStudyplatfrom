@@ -110,7 +110,7 @@ const Sidebar = ({ children }) => {
                     className="sidebar"
                     style={{ width: isOpen ? "170px" : "85px" }}
                   >
-                    <div className="content">
+                    <div className="scontent">
                       {pcMenuItem.map((item, index) => (
                         <NavLink
                         target={item.name==='Your videos'?'_blank':""}
