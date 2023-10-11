@@ -1,7 +1,9 @@
+import '../CSS/home.css';
 import React from 'react'
 import Homeiteams from './Homeiteams'
 import InfiniteScroll from "react-infinite-scroll-component";
 import demovideo from "../photos/mov_bbb.mp4";
+import demoV2 from '../photos/demoV2.mp4';
 
 // import video from '../photos/jav.mp4'
 function Home() {
@@ -26,7 +28,7 @@ function Home() {
   {
     id:'v12h',
     title:"Adding Frontend Validation + Few Fixes in iNotebook | Complete React Course in Hindi #68",
-    url:demovideo,
+    url:demoV2,
     // prfile_name:"CodeWithHarry",
     // profile_link:"https://www.youtube.com/@CodeWithHarry",
     prfile_pic:"https://yt3.ggpht.com/ytc/AOPolaQMtqt8g-xxJ3BkIF06RPiJcIsPzbSOLOwDVAA5pw=s68-c-k-c0x00ffffff-no-rj"
@@ -34,7 +36,7 @@ function Home() {
   {
     id:'r12w',
     title:"Adding Frontend Validation + Few Fixes in iNotebook | Complete React Course in Hindi #68",
-    url:demovideo,
+    url:demoV2,
     prfile_name:"CodeWithHarry",
     // profile_link:"https://www.youtube.com/@CodeWithHarry",
     prfile_pic:"https://yt3.ggpht.com/ytc/AOPolaQMtqt8g-xxJ3BkIF06RPiJcIsPzbSOLOwDVAA5pw=s68-c-k-c0x00ffffff-no-rj"

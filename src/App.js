@@ -1,11 +1,10 @@
 // import logo from './logo.svg';
 import React from 'react';
 import './CSS/App.css';
-import './CSS/home.css';
+
 import './CSS/util.css';
 import './CSS/login.css';
 import './CSS/search.css';
-import './CSS/videopage.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import Dashboard from './components/Dashboard.jsx';

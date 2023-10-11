@@ -1,5 +1,5 @@
 import React, {  useState, useRef } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink , useNavigate } from "react-router-dom";
 import vposter from '../photos/vposter.jpg'
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 function Homeiteams(props) {
@@ -7,6 +7,7 @@ function Homeiteams(props) {
   const [showPoster, setShowPoster] = useState(true);
 
   let { video } = props;
+  const navigate=useNavigate();
   // Function to play the video when hovered
   const handleMouseEnter = async () => {
     try {
@@ -48,30 +49,31 @@ title=video.title;
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <NavLink
+        <div
           onClick={() => {
             localStorage.setItem("videoUrl", video.url);
+            navigate(`/video/${video.id}`)
           }}
-          to={`/video/${video.id}`}
+          // to={`/video/${video.id}`}
           className="video-link"
         ><div>
          
-          <video  ref={videoRef} controls={false} muted className="item-video"  poster={showPoster?vposter: undefined} >
+          <video  ref={videoRef} controls={false} muted className="item-video cursor-pointer"  poster={showPoster?vposter: undefined} >
             <source src={video.url} type="video/mp4"></source>
             <source src={video.url} type="video/webm"></source>
             Your browser does not support the video tag.
           </video>
-          <div className="video-des">
+          <div className="video-des cursor-pointer">
             <img src={video.prfile_pic} alt="profile"></img>
           <h3 className="video-titale">{title}...</h3>
           </div>
-          <div className="chenel-viws-ditals">
+          <div className="chenel-viws-ditals cursor-pointer" onClick={()=>{navigate(`/chanel/${video.id}`)}}>
             <Link to={`/chanel/${video.id}`}  className="chanel-name" >sobhan paramanik </Link>
           <p className="video-view">1k views<span className="vertical-line"></span>6 month ago </p>
           {/* <MoreVertIcon/> */}
           </div>
           </div>
-        </NavLink>
+        </div>
       </div>
     </>
   );
