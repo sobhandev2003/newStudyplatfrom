@@ -1,0 +1,194 @@
+.signupform{
+    position: absolute;
+    top: 10%;
+    left: 30%;
+	border:1px solid red;
+	width:500px;
+	text-align:center;
+	font-size:20px;
+	padding:10px;
+	background-image:linear-gradient(45deg,aqua,pink,blue);
+	height:70dvh;
+	border-color:brown;
+    border-radius: 20px;
+}
+.signup_gender-op{
+	display:inline-block;
+	border:2px solid brown;
+	padding:10px;
+	border-radius:6px;
+	width:27.7%;
+	text-align:left;
+	background-color:white;
+	color:brown;
+	font-variant:small-caps;
+}
+
+.gender-input {
+    background-color: hsl(216, 12%, 8%);
+    text-decoration: none;
+    accent-color: white;
+    /* width: 0px; */
+    display: none;
+  }
+.gender-group {
+    /* text-align: center; */
+    /* margin-top: 10px; */
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .gender-span {
+    display: flex;
+    justify-content: center;
+    
+    align-items: center;
+    border: 2px solid hsl(194, 30%, 56%);
+    background-color: hsl(202, 53%, 72%);
+    font-size: 30px;
+    width: 120px;
+    height: 50px;
+    border-radius: 10px;
+    color: rgb(193, 50, 50);
+    cursor: pointer;
+   
+    padding: 0px;
+  }
+  
+  .gender-lebel{
+    display: inline-block;
+    width: 120px;
+    height: 50px;
+    margin: 0px 8px;
+    /* border: 1px solid red; */
+    
+  
+  }
+  
+  .gender-span:hover {
+    background-color: hsl(25, 97%, 53%);
+    border: 2px solid hsl(25, 97%, 53%);
+    color: white;
+  }
+  
+  input[type="radio"]:checked+.gender-span {
+   
+    background-color: white;
+    color: black;
+   
+  
+  }
+
+
+
+.signup_input{
+    padding: 10px;
+}
+.inpsignup_inputut[type="radio"]{
+	float:right;
+}
+.size{
+	height:40px;
+	width:100%;
+	margin-bottom:7px;
+	font-size:22px;
+	border-radius:6px;
+	border-color:brown;
+	border-width:2px;
+	background-color:white;
+	color:brown;
+	font-variant:small-caps;
+}
+.fn{
+	height:40px;
+	width:49%;
+	margin-bottom:7px;
+	font-size:22px;
+	border-radius:6px;
+	border-color:brown;
+	border-width:2px;
+	background-color:white;
+	color:brown;
+	font-variant:small-caps;
+}
+.ln{
+	height:40px;
+	width:49%;
+	margin-bottom:7px;
+	font-size:22px;
+	border-radius:6px;
+	border-color:brown;
+	border-width:2px;
+	background-color:white;
+	color:brown;
+	font-variant:small-caps;
+}
+option{
+	text-align:center;
+}
+/* div{
+	text-align:left;
+	font-size:22px;
+	font-family:Vrinda;
+} */
+.sign_up_hea{
+	font-size:30px;
+	color:white;
+	margin-top:0px;
+	margin-bottom:25px;
+	text-transform:uppercase;
+	letter-spacing:5px;
+}
+.hr{
+	height:2px;
+	width:110%;
+	background-color:white;
+	margin-bottom:10px;
+	margin-left:-10px;
+}
+.submit-div{
+    height: fit-content;
+    width: 100%;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-around;
+}
+.signup_button{
+	margin-top:10px;
+	background-image:linear-gradient(#32a852,#6fb081);
+	font-size:25px;
+	border-style:none;
+	padding:10px 50px;
+	border-radius:6px;
+	color:white;
+	text-transform:uppercase;
+	width:40%;
+	transition-duration:0.3s;
+}
+.signup_button:hover{
+	background-image:linear-gradient(#873ce8,#37a0f0);
+	font-size:28px;
+	box-shadow:5px 10px 5px blue;
+}
+::placeholder{
+	/* text-align:center; */
+    padding-left: 15px;
+	color:rgb(206, 174, 174);
+}
+
+
+
+.email{
+	height:40px;
+	width:100%;
+	margin-bottom:7px;
+    padding-left: 10px;
+	font-size:22px;
+	border-radius:6px;
+	border-color:brown;
+	border-width:2px;
+	background-color:white;
+	color:brown;
+	font-variant:small;
+	text-align:left;
+}
