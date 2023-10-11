@@ -5,7 +5,6 @@ function Signup() {
   
 
   // Sort the countries alphabetically
-  countries.sort();
   return (
     <div>
       {/* <center> */}
