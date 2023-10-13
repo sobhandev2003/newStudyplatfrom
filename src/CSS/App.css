@@ -7,12 +7,14 @@
 }
 body{
   overflow: hidden;
+  
 }
 
 main{
   
   width:100%;
-  padding: 20px;
+  /* min-height: 100%; */
+  /* padding: 20px; */
  
 }
 .navbar{
@@ -40,6 +42,7 @@ main{
 
 .main-content {
   /* border: 2px solid rgb(244, 48, 4); */
+ 
   position: absolute;
   margin: 0;
   top: 64px;
@@ -53,39 +56,16 @@ main{
 .content {
  
   /* border: 5px solid greenyellow; */
-  width: 87dvw;
-  height: 89dvh;
+  /* width: 87dvw; */
+  width: 99.5%;
+  height: 100%;
   display: flex;
   flex-direction:column;
   font-size: 3em;
 }
 
 
-/* .sidebar{
-  float: left;
-  overflow-y: scroll;
-  
-  float: left;
-  background: #000;
-  padding-top: 20px;
-  color: #fff;
-  height: 100dvh;
-  width: 200px;
-  transition: all 0.5s;
-}
-.dashbor-element{
-  width: 70%;
-  float: left;
-  overflow-y: scroll;
 
-}
-.content {
-  height: 500vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 3em;
-} */
 .top_section{
   display: flex;
   align-items:center;

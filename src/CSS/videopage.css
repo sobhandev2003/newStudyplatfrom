@@ -1,38 +1,52 @@
 .videopage-body{
     width: 100%;
     height: 100%;
-    /* border: 1px solid green; */
+    border: 1px solid rgb(229, 8, 163);
     margin: 0;
+    
     /* overflow-y: auto; */
 }
-.videoPage-LeftSection{
-    width: 70%;
-    height: 100%;
-}
+
 /*  */
 .play-video-div{
-    position: relative;
+position: relative;
 border: 1px solid green;
-width: 95%;
-height: 65dvh;
+width: 70%;
+max-width:1000px;
+/* height:80% ; */
 display: flex;
 justify-content: center;
-margin-inline: auto;
+/* margin-inline: auto; */
 }
-.play-video{
+.play-video-div.thearter{
+    max-width: initial;
+    width: 100%;
+    max-height: 80vh;
+}
+.play-video-div.fullscreen{
+    max-width: initial;
+    width: 100%;
+    height: 90vh;
+}
+
+
+#VideoPlaying{
 width: 100%;
-/* height: 100%; */
+/* border: 10px solid green; */
+/* height: 65dvh; */
+background: black;
 cursor: pointer;
 border-radius: 10px;
 /* background-color: black; */
   
 }
+/* Contorl bars CSS */
 .contrl-bars-div{
     display: flex;
  /* justify-content:center ;  */
      align-items: center;
     border: 1px solid rgb(4, 0, 128);
-    height: 60px;
+    /* height: 60px; */
     position: absolute;
     bottom: 0;
     left: 0;
@@ -44,6 +58,17 @@ border-radius: 10px;
     background: transparent;
     /* background-color: rgb(48, 47, 47); */
 }
+.contrl-bars-div::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background:linear-gradient(to top,rgb(0,0,0,.75));
+    aspect-ratio: 6/1;
+    z-index: -1;
+    pointer-events: none;
+    
+}
 .play-video-div:hover .contrl-bars-div,
 .play-video-div:focus-within .contrl-bars-div,
 .play-video-div.paused .contrl-bars-div
@@ -52,8 +77,7 @@ border-radius: 10px;
 }
 
 .contrl-bars-div .controls{
-    /* border: 1px solid red; */
-    /* height: 50px; */
+    
 display: flex;
 gap: .5rem;
 padding: .25rem;
@@ -62,7 +86,7 @@ align-items: center;
 .contrl-bars-div .controls button{
     background: none;
     border: none;  
-    color: white;
+    color: rgb(141, 222, 243);
     padding: 0;
     height: 30px;
     width: 30px;
@@ -81,20 +105,76 @@ align-items: center;
     display: none;
 }
 
-/* .video-play-paused-btn{
-    background: none;
-    border: none;
-    color: white;
-    height: 30px;
-} */
- /* Change the progress bar color to blue */
-/* Change the color of the video progress bar */
+
 
 .videoPage_downSection{
     width: 100%;
     height: 500px;
     border: 2px solid red;
 }
+.play-video-div.thearter .tall-ico{
+    display: none;
+}
+.play-video-div:not(.thearter ) .wide-ico{
+    display: none;
+}
+.play-video-div.fullScreen .wide-ico,
+.play-video-div.fullScreen .tall-ico,
+.play-video-div.fullScreen .full-sc-icon{
+    display: none;
+}
+.play-video-div:not(.fullScreen) .exit-full-sc-icon{
+    display: none;
+}
+
+.play-video-div .volume-high-icon,
+.play-video-div .volume-down-icon,
+.play-video-div .volume-muted-icon
+{
+    display: none;
+}
+.play-video-div[data-volume-level='high'] .volume-high-icon{
+    display: block;
+}
+.play-video-div[data-volume-level='down'] .volume-down-icon{
+    display: block;
+}
+.play-video-div[data-volume-level='muted'] .volume-muted-icon{
+    display: block;
+}
+.volume-div{
+    display: flex;
+    align-items: center;
+}
+.volume-slider{
+    width: 0;
+    transform-origin:left ;
+    transform: scaleX(0);
+    transition: width 200ms ease-in-out,transform 200ms ease-in-out;
+
+}
+.volume-div:hover .volume-slider,
+.volume-slider:focus-within
+{
+    width: 100px;
+    transform: scaleX(1);
+}
+.duration-div{
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 1.1rem;
+    gap: .25rem;
+    border: 1px solid rebeccapurple;
+}
+.contorlrsbar-right{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 20px;
+}
+
+
 
 
 
