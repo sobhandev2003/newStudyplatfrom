@@ -18,25 +18,35 @@ import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 function VideoPage() {
 
 let video,videoContener,totalTimediv;
+let isKeyProcessed = false;
 const refarVideo=useRef(null);
+const refvideoContener=useRef(null);
   // add play and pause functionality
   const [isPlay,setisPlay]=useState(false)
   const [ispause,setispause]=useState(true)
   const videoPlay=async()=>{
+    video = refarVideo.current;
+    console.log(video);
     if(video&&ispause ){
     await video.play();
     }
 
   }
   const videoPaused=async()=>{
-     await video.pause();
+    video = refarVideo.current;
+    if(video){
+      await video.pause();
+
       setispause(true);
+    }
     }
    
   const toggolePlay=()=>{
-    
-    isPlay?videoPaused():videoPlay();
-    setisPlay(!isPlay);
+    if(!isKeyProcessed)
+    {
+     console.log("presKey");
+     isPlay?videoPaused():videoPlay();
+    setisPlay(!isPlay);}
   }
  //Volume control
  const [volume,steVolume] =useState(1);
@@ -45,11 +55,13 @@ const refarVideo=useRef(null);
  let volumeLevel='high';
  const handelVolumeChange=(event)=>{
   let newVolumeValue=event.target.value;
-  steVolume(newVolumeValue);
+  video = refarVideo.current;
+  if(video){
+    steVolume(newVolumeValue);
   video.volume=newVolumeValue;
   
   video.muted=newVolumeValue===0;
-  setVolumeLevelValue(video);
+  setVolumeLevelValue(video);}
  }
 
 const setVolumeLevelValue=(video)=>{
@@ -67,6 +79,7 @@ const setVolumeLevelValue=(video)=>{
 
 
   const toggoleVolumeMute=()=>{
+    video = refarVideo.current;
     video.muted=!video.muted;
     steVolume(video.volume);
     setVolumeLevelValue(video);
@@ -91,19 +104,27 @@ return `${min}:${leadingZeroFormater.format(sec)}`
 return `${hours}:${leadingZeroFormater.format(min)}:${leadingZeroFormater.format(sec)}`
   }
   const handleOnLoadedMetadata = () => {
-    const video = refarVideo.current;
+    video = refarVideo.current;
     if (video) {
       
       setTotalVideoDuration(formatduration(video.duration));
     }
+    video.addEventListener('timeupdate',()=>{
+      setcurrentDuration(formatduration(video.currentTime));
+     });
     
   };
 
+  
+    
+  
 
 // video view
 const [isThearter,setisTheater]=useState(false);
 const [isFulscren,setisFulscren]=useState(false);
 const  toggoleFulscren=()=>{
+  console.log("1");
+  videoContener= refvideoContener.current;
   if(document.fullscreenElement==null){
 videoContener.requestFullscreen();
 setisFulscren(true);
@@ -113,48 +134,51 @@ setisFulscren(true);
     setisFulscren(false);
   }
 }
-  
-useEffect(()=>{
 
-  video=document.getElementById('VideoPlaying')
-  videoContener=document.getElementById('videoContener');
-  totalTimediv=document.getElementById('total-time');
- video.addEventListener('timeupdate',()=>{
-  setcurrentDuration(formatduration(video.currentTime));
- })
- 
-}
-)
+
+
+document.addEventListener("keydown",e=>{
+  
+    const tagName=document.activeElement.tagName.toLowerCase();
+    if(tagName==='input')return;
+    let presKey=e.key.toLowerCase();
+    console.log(presKey);
+    switch(presKey){
+      case ' ':
+        if(tagName==='button')return;
+      case 'k':
+      // case 'K':
+          toggolePlay();
+          break;
+      case 'f':
+        toggoleFulscren();
+        break;  
+      case 't':
+        
+        // 
+       
+        setisTheater(!isThearter);
+       
+        break;
+      //  case 'm':
+      //   toggoleVolumeMute(); 
+        default:
+    }
+    
+
+  
+  })
+  document.addEventListener("keyup", () => {
+    isKeyProcessed = false;
+  });
 
 const videoUrl=localStorage.getItem('videoUrl');
-document.addEventListener("keydown",e=>{
-  const tagName=document.activeElement.tagName.toLowerCase();
-  if(tagName==='input')return;
-  let presKey=e.key.toLowerCase();
-  switch(presKey){
-    case ' ':
-      if(tagName==='button')return;
-    case 'k':
-    // case 'K':
-        toggolePlay();
-        break;
-    case 'f':
-    // case 'F':  
-      toggoleFulscren();
-      break;  
-    case 't':
-      setisTheater(!isThearter);
-      break;
-     case 'm':
-      toggoleVolumeMute(); 
-      default:
-  }
 
-})
+
   return (
     <div className='videopage-body'>
      {/* <div className='videoPage-LeftSection'> */}
-       <div id="videoContener" className={`play-video-div ${isPlay?"":"paused"} ${isThearter?"thearter":""} ${isFulscren?"fullScreen":""}`} data-volume-level={VolumeLevel} >
+       <div id="video-Contener" ref={refvideoContener} className={`play-video-div ${isPlay?"":"paused"} ${isThearter?"thearter":""} ${isFulscren?"fullScreen":""}`} data-volume-level={VolumeLevel} >
         {/* Video controlers  */}
         
        <div className='contrl-bars-div' >
@@ -182,10 +206,10 @@ document.addEventListener("keydown",e=>{
       <video ref={refarVideo} id='VideoPlaying' className='play-video'
         onClick={toggolePlay}
         onLoadedMetadata={handleOnLoadedMetadata}
-        src={videoUrl}
+        // src={videoUrl}
       >
-        {/* <source src={videoUrl} type="video/mp4" /> */}
-        {/* <source src={videoUrl} type="video/webm" /> */}
+        <source src={videoUrl} type="video/mp4" />
+        <source src={videoUrl} type="video/webm" />
       </video>
       
       </div>
