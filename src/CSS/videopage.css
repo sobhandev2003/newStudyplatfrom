@@ -1,7 +1,7 @@
 .videopage-body{
     width: 100%;
     height: 100%;
-    border: 1px solid rgb(229, 8, 163);
+    /* border: 1px solid rgb(229, 8, 163); */
     margin: 0;
     
     /* overflow-y: auto; */
@@ -10,7 +10,7 @@
 /*  */
 .play-video-div{
 position: relative;
-border: 1px solid green;
+/* border: 1px solid green; */
 width: 70%;
 max-width:1000px;
 /* height:80% ; */
@@ -35,17 +35,17 @@ width: 100%;
 /* border: 10px solid green; */
 /* height: 65dvh; */
 background: black;
-cursor: pointer;
+/* cursor: pointer; */
 border-radius: 10px;
 /* background-color: black; */
   
 }
 /* Contorl bars CSS */
 .contrl-bars-div{
-    display: flex;
+    /* display: flex; */
  /* justify-content:center ;  */
      align-items: center;
-    border: 1px solid rgb(4, 0, 128);
+    /* border: 1px solid rgb(4, 0, 128); */
     /* height: 60px; */
     position: absolute;
     bottom: 0;
@@ -54,7 +54,7 @@ border-radius: 10px;
     z-index: 100;
     opacity: 0;
     transition: opacity 200ms ease-in-out;
-    cursor: pointer;
+    /* cursor: pointer; */
     background: transparent;
     /* background-color: rgb(48, 47, 47); */
 }
@@ -165,7 +165,7 @@ align-items: center;
     color: white;
     font-size: 1.1rem;
     gap: .25rem;
-    border: 1px solid rebeccapurple;
+    /* border: 1px solid rebeccapurple; */
 }
 .contorlrsbar-right{
     display: flex;
@@ -173,10 +173,75 @@ align-items: center;
     position: absolute;
     right: 20px;
 }
+.play-video-div.caption .caption-icon{
+    border-bottom: 3px solid red;
+}
+.play-video-div .controls button.playback-speed-btn{
+    /* border: 3px solid red; */
+    text-align: center;
+    width: 50px;
+    font-size: medium;
+    
+}
 
+.timeline-controlers{
+  /* border: 2px solid red; */
+    height: 7px;
+    /* width: 100%; */
+    margin-inline: .5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
 
+.timline{
+    /* display: block; */
+    height: 3px;
+    width: 100%;
+    position: relative;
 
+    background-color: rgba(244, 241, 241, 0.5);
+}
+.timline::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: calc(100% - var(--privew-postion)*100%);
+    background-color: rgb(202, 201, 201);
+display: none;
 
-
-
+}
+.timline::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: calc(100% - var(--progress-postion)*100%);
+    background-color: red;
+}
+.timline .thumb-indecater{
+    --scale: 0;
+    position: absolute;
+    transform: translateX(-50%) scale(var(--scale));
+    height: 200%;
+    top:-50%;    
+    left:calc( var(--progress-postion)*100%);
+    background-color: red;
+    border-radius: 50%;
+    transition: transform 150ms ease-in-out;
+    aspect-ratio: 1/1;
+}
+.timeline-controlers:hover .timline::before{
+    display: block;
+}
+.timeline-controlers:hover .timline{
+ 
+    height: 100%;
+}
+.timeline-controlers:hover .thumb-indecater{
+    --scale:1;
+}
   
